@@ -2,6 +2,6 @@
 Just some utility scripts!
 
 ## Installation
-```
+``` 
 pipenv install
 ```
