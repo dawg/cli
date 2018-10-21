@@ -3,8 +3,7 @@ from setuptools import setup
 setup(
     name='vuesic',
     packages=['vuesic'],
-    version='0.22',
-    include_package_data=True,
+    version='0.1',
     description='A CLI to manage scripts!',
     author='Vuesic',
     author_email='jacob.smith@unb.ca',
