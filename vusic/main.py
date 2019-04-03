@@ -14,12 +14,16 @@ def main():
 @click.argument('region')
 def crop(path, region):
   """Crop an set of images. Use 444,576,1920,1054 for panels and 0,0,442,1058 for the side drawer."""
-  directory = os.path.dirname(path)
-  zip = zipfile.ZipFile(path, 'r')
-  images = zip.namelist()
-  click.echo(f'Found {len(images)} images in {path}')
-  zip.extractall(directory)
-  zip.close()
+  if os.path.isdir(path):
+    directory = path
+    images = os.listdir(directory)
+  else:
+    directory = os.path.dirname(path)
+    zip = zipfile.ZipFile(path, 'r')
+    images = zip.namelist()
+    click.echo(f'Found {len(images)} images in {path}')
+    zip.extractall(directory)
+    zip.close()
 
   for file in images:
     name, ext = file.split('.')
